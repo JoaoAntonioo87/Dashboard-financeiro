@@ -1,0 +1,10 @@
+.header {
+  background-color: var(--COLOR-P3);
+  padding: 1.25rem 0;
+}
+
+.page-title {
+  text-align: center;
+  font: var(--FONT-L-2);
+  color: var(--COLOR-S1);
+}
