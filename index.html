@@ -13,13 +13,15 @@
 </head>
 
 <body>
-  <header class="header">
+  <header class="header" data-theme="light">
     <div class="container">
       <h1 class="page-title">Dashboard financeiro</h1>
     </div>
   </header>
-  <button class="dark-mode-btn" aria-label="Ativar modo escuro">
-    <img src="./img/icons/moon.svg" alt="">
+  <button id="theme-btn" aria-label="Ativar modo escuro" data-theme="light">
+    <div>
+      <img id="theme-icon" src="./img/icons/moon.svg" alt="" data-theme="light">
+    </div>
   </button>
   <script type="module" src="./script.js"></script>
 </body>

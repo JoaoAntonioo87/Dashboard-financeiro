@@ -27,7 +27,7 @@
   letter-spacing: 2%;
 }
 
-.dark-mode-btn {
+#theme-btn {
   position: absolute;
   background-color: var(--COLOR-C2);
   border: 2px solid var(--COLOR-P1);
@@ -38,8 +38,22 @@
   top: 100px;
 }
 
-.dark-mode-btn img {
+#theme-icon {
+  position: relative;
   background-color: var(--COLOR-S1);
+  border-radius: 50%;
+  margin: 4px 4px 4px 32px;
+  padding: 4px;
+}
+
+#theme-btn[data-theme="dark"] {
+  background-color: var(--COLOR-S1);
+  box-shadow: 4px 4px 0 var(--COLOR-P3);
+}
+
+#theme-icon[data-theme="dark"] {
+  right: 30px;
+  background-color: var(--COLOR-P1);
   border-radius: 50%;
   margin: 4px 4px 4px 32px;
   padding: 4px;
