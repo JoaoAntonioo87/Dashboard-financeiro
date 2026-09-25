@@ -26,3 +26,21 @@
 .button {
   letter-spacing: 2%;
 }
+
+.dark-mode-btn {
+  position: absolute;
+  background-color: var(--COLOR-C2);
+  border: 2px solid var(--COLOR-P1);
+  box-shadow: 4px 4px 0 var(--COLOR-P1);
+  border-radius: 32px;
+  height: 36px;
+  right: 20px;
+  top: 100px;
+}
+
+.dark-mode-btn img {
+  background-color: var(--COLOR-S1);
+  border-radius: 50%;
+  margin: 4px 4px 4px 32px;
+  padding: 4px;
+}
