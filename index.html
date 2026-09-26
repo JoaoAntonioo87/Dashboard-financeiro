@@ -25,9 +25,9 @@
   </button>
 
   <section class="form-cadastro container">
-    <form action="./" data-theme="light">
+    <form action="./modules/handleForm.js" method="POST" data-theme="light" id="form">
       <label for="valor" data-theme="light">Valor</label>
-      <input type="number" id="valor" placeholder="R$ 1.000,00" required data-theme="light">
+      <input type="number" id="valor" name="valor" placeholder="R$ 1.000,00" required data-theme="light">
 
       <select name="operacao" id="operacao" required data-theme="light">
         <option value="" disabled selected>Operação</option>
@@ -51,7 +51,7 @@
         <option value="mercado-pago">Mercado Pago</option>
       </select>
 
-      <input type="date" required data-theme="light">
+      <input type="date" required data-theme="light" name="data">
 
       <button class="button" data-theme="light">CADASTRAR</button data-theme="light">
     </form>
