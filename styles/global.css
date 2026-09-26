@@ -13,9 +13,9 @@
   --FONT-L-1: 400 2rem/1.25 "Blinker";
   --FONT-L-2: 400 2rem/1 "Blinker";
   --FONT-M: 400 1.5rem/1 "Blinker";
-  --FONT-XL: 600 1.25rem/1 "Blinker";
-  --FONT-XL: 400 1.25rem/1 "Blinker";
-  --FONT-XL: 400 1rem/1.25 "Blinker";
+  --FONT-S-1: 600 1.25rem/1 "Blinker";
+  --FONT-S-2: 400 1.25rem/1 "Blinker";
+  --FONT-XS: 400 1rem/1.25 "Blinker";
 }
 
 body[data-theme="dark"] {
