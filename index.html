@@ -25,17 +25,17 @@
   </button>
 
   <section class="form-cadastro container">
-    <form action="./">
-      <label for="valor">Valor</label>
-      <input type="number" id="valor" placeholder="R$ 1.000,00" required>
+    <form action="./" data-theme="light">
+      <label for="valor" data-theme="light">Valor</label>
+      <input type="number" id="valor" placeholder="R$ 1.000,00" required data-theme="light">
 
-      <select name="operacao" id="operacao" required>
+      <select name="operacao" id="operacao" required data-theme="light">
         <option value="" disabled selected>Operação</option>
         <option value="receita">Receita</option>
         <option value="despesa">Despesa</option>
       </select>
 
-      <select name="categoria" id="categoria" required>
+      <select name="categoria" id="categoria" required data-theme="light">
         <option value="" disabled selected>Categoria</option>
         <option value="dividendo">Dividendo</option>
         <option value="jscp">JSCP</option>
@@ -43,7 +43,7 @@
         <option value="adto-salario">Adto. salário</option>
       </select>
 
-      <select name="conta" id="conta" required>
+      <select name="conta" id="conta" required data-theme="light">
         <option value="" disabled selected>Conta</option>
         <option value="dinheiro">Dinheiro</option>
         <option value="itau">Itaú</option>
@@ -51,9 +51,9 @@
         <option value="mercado-pago">Mercado Pago</option>
       </select>
 
-      <input type="date" required>
+      <input type="date" required data-theme="light">
 
-      <button class="button" data-theme="light">CADASTRAR</button>
+      <button class="button" data-theme="light">CADASTRAR</button data-theme="light">
     </form>
 
   </section>
