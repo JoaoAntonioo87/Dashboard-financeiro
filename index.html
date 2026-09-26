@@ -24,79 +24,79 @@
     </div>
   </button>
 
-  <section class="form-cadastro container">
-    <form action="./modules/handleForm.js" method="POST" data-theme="light" id="form">
-      <label for="valor" data-theme="light">Valor</label>
-      <input type="number" id="valor" name="valor" placeholder="R$ 1.000,00" required data-theme="light">
+  <main>
+    <section class="form-cadastro container">
+      <form action="./modules/handleForm.js" method="POST" data-theme="light" id="form">
+        <label for="valor" data-theme="light">Valor</label>
+        <input type="number" id="valor" name="valor" placeholder="R$ 1.000,00" required data-theme="light">
 
-      <select name="operacao" id="operacao" required data-theme="light">
-        <option value="" disabled selected>Operação</option>
-        <option value="receita">Receita</option>
-        <option value="despesa">Despesa</option>
-      </select>
+        <select name="operacao" id="operacao" required data-theme="light">
+          <option value="" disabled selected>Operação</option>
+          <option value="receita">Receita</option>
+          <option value="despesa">Despesa</option>
+        </select>
 
-      <select name="categoria" id="categoria" required data-theme="light">
-        <option value="" disabled selected>Categoria</option>
-        <option value="dividendo">Dividendo</option>
-        <option value="jscp">JSCP</option>
-        <option value="salario">Salário</option>
-        <option value="adto-salario">Adto. salário</option>
-      </select>
+        <select name="categoria" id="categoria" required data-theme="light">
+          <option value="" disabled selected>Categoria</option>
+          <option value="dividendo">Dividendo</option>
+          <option value="jscp">JSCP</option>
+          <option value="salario">Salário</option>
+          <option value="adto-salario">Adto. salário</option>
+        </select>
 
-      <select name="conta" id="conta" required data-theme="light">
-        <option value="" disabled selected>Conta</option>
-        <option value="dinheiro">Dinheiro</option>
-        <option value="itau">Itaú</option>
-        <option value="inter">Inter</option>
-        <option value="mercado-pago">Mercado Pago</option>
-      </select>
+        <select name="conta" id="conta" required data-theme="light">
+          <option value="" disabled selected>Conta</option>
+          <option value="dinheiro">Dinheiro</option>
+          <option value="itau">Itaú</option>
+          <option value="inter">Inter</option>
+          <option value="mercado-pago">Mercado Pago</option>
+        </select>
 
-      <input type="date" required data-theme="light" name="data">
+        <input type="date" required data-theme="light" name="data">
 
-      <button class="button" data-theme="light">CADASTRAR</button data-theme="light">
-    </form>
+        <button class="button" data-theme="light">CADASTRAR</button data-theme="light">
+      </form>
 
-  </section>
-
-  <section class="tabelas container">
-
-    <h2 class="subtitle">Receitas</h2>
-    <article class="tabela receitas">
-      <div class="head-tabela">
-        <p>Data</p>
-        <p>Valor</p>
-        <p>Conta</p>
-        <p>Categoria</p>
-      </div>
-      <div class="body-tabela">
-        <div class="linha-tabela">
-          <p>16/08/26</p>
-          <p class="valor">1.500,00</p>
-          <p>Itaú</p>
-          <p>Salário</p>
+    </section>
+    <section class="tabelas container">
+      <h2 class="subtitle">Receitas</h2>
+      <article class="tabela receitas">
+        <div class="head-tabela">
+          <p>Data</p>
+          <p>Valor</p>
+          <p>Conta</p>
+          <p>Categoria</p>
         </div>
-        <div class="linha-tabela">
-          <p>15/08/26</p>
-          <p class="valor">150,00</p>
-          <p>Mercado Pago</p>
-          <p>Dividendo</p>
+        <div class="body-tabela">
+          <div class="linha-tabela">
+            <p>16/08/26</p>
+            <p class="valor">1.500,00</p>
+            <p>Itaú</p>
+            <p>Salário</p>
+          </div>
+          <div class="linha-tabela">
+            <p>15/08/26</p>
+            <p class="valor">150,00</p>
+            <p>Mercado Pago</p>
+            <p>Dividendo</p>
+          </div>
+          <div class="linha-tabela">
+            <p>22/07/26</p>
+            <p class="valor">300,00</p>
+            <p>Inter</p>
+            <p>JSCP</p>
+          </div>
+          <div class="linha-tabela">
+            <p>15/07/26</p>
+            <p class="valor">1.350,00</p>
+            <p>Itaú</p>
+            <p>Adto. salário</p>
+          </div>
         </div>
-        <div class="linha-tabela">
-          <p>22/07/26</p>
-          <p class="valor">300,00</p>
-          <p>Inter</p>
-          <p>JSCP</p>
-        </div>
-        <div class="linha-tabela">
-          <p>15/07/26</p>
-          <p class="valor">1.350,00</p>
-          <p>Itaú</p>
-          <p>Adto. salário</p>
-        </div>
-      </div>
-    </article>
+      </article>
+    </section>
+  </main>
 
-  </section>
   <script type="module" src="./script.js"></script>
 </body>
 
