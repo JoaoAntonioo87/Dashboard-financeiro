@@ -18,6 +18,10 @@
   --FONT-XL: 400 1rem/1.25 "Blinker";
 }
 
+body[data-theme="dark"] {
+  background-color: var(--COLOR-P2);
+}
+
 .container {
   max-width: clamp(300px, 80vw, 1400px);
   margin: 0 auto;
