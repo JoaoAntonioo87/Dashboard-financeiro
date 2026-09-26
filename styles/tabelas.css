@@ -13,7 +13,7 @@
   display: grid;
 }
 
-.tabela::before {
+.tabela + .tabela::before {
   background-color: var(--COLOR-C2);
   content: "";
   height: 2px;
@@ -43,7 +43,6 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   align-items: center;
-  justify-items: center;
   text-align: center;
   position: relative;
 }
@@ -68,4 +67,16 @@
 
 .receitas .valor {
   color: var(--COLOR-U3);
+}
+
+@media screen and (min-width: 1024px) {
+  .tabelas {
+    display: flex;
+    background-color: var(--COLOR-C1);
+    border: 4px solid var(--COLOR-P2);
+    border-radius: 1rem;
+    box-shadow: 8px 8px var(--COLOR-P1);
+    margin-top: 2.5rem;
+    padding: 2.5rem;
+  }
 }

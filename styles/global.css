@@ -22,6 +22,11 @@ body[data-theme="dark"] {
   background-color: var(--COLOR-P2);
 }
 
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
 .container {
   max-width: clamp(300px, 80vw, 1400px);
   margin: 0 auto;
@@ -61,4 +66,12 @@ body[data-theme="dark"] {
   border-radius: 50%;
   margin: 4px 4px 4px 32px;
   padding: 4px;
+}
+
+@media screen and (min-width: 1024px) {
+  main {
+    grid-template-columns: 1fr 3fr;
+    justify-content: start;
+    justify-items: start;
+  }
 }
