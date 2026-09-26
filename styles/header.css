@@ -8,3 +8,11 @@
   font: var(--FONT-L-1);
   color: var(--COLOR-S1);
 }
+
+.header[data-theme="dark"] {
+  background-color: var(--COLOR-S1);
+}
+
+.page-title[data-theme="dark"] {
+  color: var(--COLOR-P3);
+}
