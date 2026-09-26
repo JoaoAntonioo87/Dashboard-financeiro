@@ -34,6 +34,16 @@
   color: var(--COLOR-C3);
 }
 
+.form-cadastro input:valid,
+.form-cadastro select:valid {
+  border-color: var(--COLOR-U3);
+}
+
+.form-cadastro input:invalid,
+.form-cadastro select:invalid {
+  border-color: red;
+}
+
 .form-cadastro input:focus,
 .form-cadastro select:focus {
   border-color: var(--COLOR-U1);
@@ -44,16 +54,6 @@
 .form-cadastro input:focus[data-theme="dark"],
 .form-cadastro select:focus[data-theme="dark"] {
   box-shadow: 8px 8px 0 var(--COLOR-P3);
-}
-
-.form-cadastro input:valid,
-.form-cadastro select:valid {
-  border-color: var(--COLOR-U3);
-}
-
-.form-cadastro input:invalid,
-.form-cadastro select:invalid {
-  border-color: red;
 }
 
 /* Lidar com o seletor númerico */
