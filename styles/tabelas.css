@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+.subtitle[data-theme="dark"] {
+  color: var(--COLOR-S1);
+}
+
 .tabelas {
   position: relative;
   margin-top: 10rem;
@@ -13,7 +17,7 @@
   display: grid;
 }
 
-.tabela + .tabela::before {
+.tabela::before {
   background-color: var(--COLOR-C2);
   content: "";
   height: 2px;
@@ -26,17 +30,24 @@
 .head-tabela {
   color: var(--COLOR-C3);
   display: grid;
+  font: var(--FONT-XS);
   grid-template-columns: repeat(4, 1fr);
   justify-items: center;
   margin-top: 1.25rem;
 }
 
-.head-tabela p {
-  font: var(--FONT-XS);
+.head-tabela[data-theme="dark"] {
+  color: var(--COLOR-C2);
 }
 
 .body-tabela {
+  color: var(--COLOR-C3);
+  font: var(--FONT-XS);
   margin-top: 0.75rem;
+}
+
+.body-tabela[data-theme="dark"] {
+  color: var(--COLOR-C2);
 }
 
 .linha-tabela {
@@ -58,11 +69,6 @@
   height: 2px;
   width: 100%;
   top: -12px;
-}
-
-.linha-tabela p {
-  font: var(--FONT-XS);
-  color: var(--COLOR-C3);
 }
 
 .receitas .valor {
