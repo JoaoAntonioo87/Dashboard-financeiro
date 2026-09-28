@@ -76,6 +76,10 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .subtitle[data-theme="dark"] {
+    color: var(--COLOR-P3);
+  }
+
   .tabelas {
     display: flex;
     background-color: var(--COLOR-C1);
@@ -84,5 +88,17 @@
     box-shadow: 8px 8px var(--COLOR-P1);
     margin-top: 2.5rem;
     padding: 2.5rem;
+  }
+
+  .tabela::before {
+    height: 0;
+  }
+
+  .head-tabela[data-theme="dark"] {
+    color: var(--COLOR-C3);
+  }
+
+  .body-tabela[data-theme="dark"] {
+    color: var(--COLOR-C3);
   }
 }
