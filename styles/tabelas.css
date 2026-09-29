@@ -1,3 +1,8 @@
+.tabelas-grid {
+  position: relative;
+  margin-top: 10rem;
+}
+
 .subtitle {
   font: var(--FONT-L-1);
   color: var(--COLOR-P3);
@@ -8,9 +13,93 @@
   color: var(--COLOR-S1);
 }
 
-.tabelas-grid {
-  position: relative;
-  margin-top: 10rem;
+.filtro {
+  background-color: var(--COLOR-S1);
+  border: 2px solid var(--COLOR-P3);
+  border-radius: 8px;
+  box-shadow: 2px 2px 0 var(--COLOR-P1);
+  padding: 8px;
+  position: absolute;
+  top: 0;
+  right: 8px;
+}
+
+.filtro.active {
+  content: url(../img/icons/full-funnel.svg);
+}
+
+.menu-filtro {
+  display: none;
+}
+
+.menu-filtro.active {
+  background-color: var(--COLOR-S1);
+  border-radius: 16px;
+  border: 2px solid var(--COLOR-P1);
+  display: grid;
+  padding: 20px;
+  position: absolute;
+  width: 100%;
+  right: 0;
+  z-index: 1;
+}
+
+.filtro-campo + .filtro-campo {
+  margin-top: 1.25rem;
+}
+
+.filtro-campo h3 {
+  color: var(--COLOR-P3);
+  font: var(--FONT-M);
+  margin-bottom: 0.5rem;
+}
+
+.filtro-campo label {
+  color: var(--COLOR-C4);
+  display: inline-block;
+  font: var(--FONT-XS);
+  margin: 2px 0;
+}
+
+.filtro-campo label:has(input:checked) {
+  background-color: var(--COLOR-C2);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.filtro-campo input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.filtro-campo input[type="number"],
+.filtro-campo input[type="text"] {
+  background-color: var(--COLOR-C1);
+  border: none;
+  border-radius: 8px;
+  color: var(--COLOR-C4);
+  font: var(--FONT-XS);
+  outline: none;
+  padding: 6px 12px;
+  width: 100%;
+}
+
+.filtro-campo input[type="number"]::placeholder,
+.filtro-campo input[type="text"]::placeholder {
+  color: var(--COLOR-C3);
+}
+
+.menu-filtro input[type="submit"] {
+  background-color: var(--COLOR-P1);
+  border: 2px solid var(--COLOR-P2);
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 var(--COLOR-P3);
+  color: var(--COLOR-S1);
+  font: var(--FONT-S-1);
+  justify-self: center;
+  letter-spacing: 2%;
+  margin-top: 1.25rem;
+  padding: 8px 20px;
 }
 
 .tabela {
