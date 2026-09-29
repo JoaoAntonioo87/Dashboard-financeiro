@@ -3,6 +3,29 @@
   margin-top: 10rem;
 }
 
+.tabela {
+  display: grid;
+  position: relative;
+}
+
+.tabela::before {
+  background-color: var(--COLOR-C2);
+  content: "";
+  height: 2px;
+  left: 10%;
+  position: absolute;
+  top: -80px;
+  width: 80%;
+}
+
+.tabela + .tabela {
+  margin-top: 4rem;
+}
+
+.tabela + .tabela::before {
+  width: 0;
+}
+
 .subtitle {
   font: var(--FONT-L-1);
   color: var(--COLOR-P3);
@@ -41,6 +64,7 @@
   position: absolute;
   width: 100%;
   right: 0;
+  top: 64px;
   z-index: 1;
 }
 
@@ -102,24 +126,6 @@
   padding: 8px 20px;
 }
 
-.tabela {
-  display: grid;
-}
-
-.tabela::before {
-  background-color: var(--COLOR-C2);
-  content: "";
-  height: 2px;
-  left: 10%;
-  position: absolute;
-  top: -80px;
-  width: 80%;
-}
-
-.tabela + .tabela {
-  margin-top: 4rem;
-}
-
 .head-tabela {
   color: var(--COLOR-C3);
   display: grid;
@@ -175,6 +181,11 @@
 @media screen and (min-width: 1024px) {
   .subtitle[data-theme="dark"] {
     color: var(--COLOR-P3);
+  }
+
+  .menu-filtro.active {
+    right: 8px;
+    width: auto;
   }
 
   .tabelas-grid {
