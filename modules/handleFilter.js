@@ -32,9 +32,11 @@ export default function handleFilter() {
 
   function handleInputs(labels) {
     labels.forEach((label) => {
-      label.addEventListener("click", (e) => {
-        e.preventDefault();
-        label.children[0].toggleAttribute("checked");
+      label.addEventListener("dblclick", (e) => {
+        if (label.children[0].checked) {
+          label.children[0].checked = false;
+          console.log(label.children[0]);
+        }
       });
     });
   }
