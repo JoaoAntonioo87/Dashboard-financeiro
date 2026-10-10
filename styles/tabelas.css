@@ -4,7 +4,6 @@
 }
 
 .tabela {
-  display: grid;
   position: relative;
 }
 
@@ -168,6 +167,10 @@
   background-color: var(--COLOR-C2);
 }
 
+.linha-tabela p {
+  padding: 0 8px;
+}
+
 .receitas .valor {
   color: var(--COLOR-U3);
 }
@@ -191,7 +194,10 @@
     border: 4px solid var(--COLOR-P2);
     border-radius: 1rem;
     box-shadow: 8px 8px var(--COLOR-P1);
+    display: grid;
+    justify-content: center;
     margin-top: 2.5rem;
+    width: 100%;
     padding: 2.5rem;
   }
 
