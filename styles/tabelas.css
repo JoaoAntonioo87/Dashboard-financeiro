@@ -103,6 +103,7 @@
   border-radius: 8px;
   color: var(--COLOR-C4);
   font: var(--FONT-XS);
+  margin-bottom: 1rem;
   outline: none;
   padding: 6px 12px;
   width: 100%;
@@ -113,12 +114,13 @@
   color: var(--COLOR-C3);
 }
 
-.menu-filtro input[type="submit"] {
+.menu-filtro button {
   background-color: var(--COLOR-P1);
   border: 2px solid var(--COLOR-P2);
   border-radius: 8px;
   box-shadow: 4px 4px 0 var(--COLOR-P3);
   color: var(--COLOR-S1);
+  display: grid;
   font: var(--FONT-S-1);
   justify-self: center;
   letter-spacing: 2%;

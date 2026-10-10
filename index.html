@@ -18,6 +18,7 @@
       <h1 class="page-title" data-theme="light">Dashboard financeiro</h1>
     </div>
   </header>
+
   <button id="theme-btn" aria-label="Ativar modo escuro" data-theme="light">
     <div>
       <img id="theme-icon" src="./img/icons/moon.svg" alt="" data-theme="light">
@@ -25,10 +26,11 @@
   </button>
 
   <main class="container">
+
     <section class="form-cadastro container">
-      <form action="./modules/handleForm.js" method="POST" data-theme="light" id="form">
+      <form action="./modules/handleForm.js" method="POST" data-theme="light" id="formCadastro">
         <label for="valor" data-theme="light">Valor</label>
-        <input type="number" id="valor" name="valor" placeholder="R$ 1.000,00" required data-theme="light">
+        <input type="number" id="valor" name="valor" placeholder="R$ 1000.00" required data-theme="light">
 
         <select name="operacao" id="operacao" required data-theme="light">
           <option value="" disabled selected>Operação</option>
@@ -54,10 +56,11 @@
 
         <input type="date" required data-theme="light" name="data">
 
-        <button class="button" data-theme="light">CADASTRAR</button data-theme="light">
+        <button class="button" data-theme="light">CADASTRAR</button>
       </form>
 
     </section>
+
     <section class="tabelas-grid container">
       <article class="tabela receitas">
         <h2 class="subtitle" data-theme="light">Receitas</h2>
@@ -65,26 +68,26 @@
         <div class="filtro-tabela">
           <button class="btn-filtro"><img src="./img/icons/empty-funnel.svg" alt="" data-theme="light" class="filtro "></button>
 
-          <form class="menu-filtro">
+          <form class="menu-filtro formFiltro" id="filtroReceita" action="./modules/handleFilter.js" method="POST">
 
             <div class="filtro-campo" data-filter="data">
               <h3>Data</h3>
 
               <label for="data-30-r">
-                <input type="radio" name="data-filtro" id="data-30-r" value="30 dias" checked>
+                <input type="radio" name="data-filtro" id="data-30-r" value="30-d">
                 30 dias
               </label>
 
               <label for="data-60-r">
-                <input type="radio" name="data-filtro" id="data-60-r" value="60 dias">60 dias
+                <input type="radio" name="data-filtro" id="data-60-r" value="60-d">60 dias
               </label>
 
               <label for="data-90-r">
-                <input type="radio" name="data-filtro" id="data-90-r" value="90 dias"> 90 dias
+                <input type="radio" name="data-filtro" id="data-90-r" value="90-d"> 90 dias
               </label>
 
               <label for="data-1-r">
-                <input type="radio" name="data-filtro" id="data-1-r" value=""> 1 ano
+                <input type="radio" name="data-filtro" id="data-1-r" value="365-d"> 1 ano
               </label>
             </div>
 
@@ -93,58 +96,57 @@
               <label for="valor-filtro">
                 <h3>Valor</h3>
               </label>
-              <input type="text" inputmode="decimal" placeholder="350,00" id="valor-filtro">
-            </div>
+              <input type="text" inputmode="decimal" placeholder="350.00" id="valor-filtro" name="valor-filtro" />
 
-            <div class="filtro-campo" data-filter="local">
-              <h3>Local</h3>
+              <div class="filtro-campo" data-filter="local">
+                <h3>Local</h3>
 
-              <label for="itau-r">
-                <input type="radio" name="data-local" id="itau-r" value="Itaú" checked>
-                Itaú
-              </label>
+                <label for="itau-r">
+                  <input type="radio" name="data-local" id="itau-r" value="Itaú">
+                  Itaú
+                </label>
 
-              <label for="inter-r">
-                <input type="radio" name="data-local" id="inter-r" value="Inter">
-                Inter
-              </label>
+                <label for="inter-r">
+                  <input type="radio" name="data-local" id="inter-r" value="Inter">
+                  Inter
+                </label>
 
-              <label for="mercado-pago-r">
-                <input type="radio" name="data-local" id="mercado-pago-r" value="Mercado Pago">
-                Mercado Pago
-              </label>
+                <label for="mercado-pago-r">
+                  <input type="radio" name="data-local" id="mercado-pago-r" value="Mercado Pago">
+                  Mercado Pago
+                </label>
 
-              <label for="dinheiro-r">
-                <input type="radio" name="data-local" id="dinheiro-r" value="Dinheiro">
-                Dinheiro
-              </label>
-            </div>
+                <label for="dinheiro-r">
+                  <input type="radio" name="data-local" id="dinheiro-r" value="Dinheiro">
+                  Dinheiro
+                </label>
+              </div>
 
-            <div class="filtro-campo" data-filter="categoria">
-              <h3>Categoria</h3>
+              <div class="filtro-campo" data-filter="categoria">
+                <h3>Categoria</h3>
 
-              <label for="salario">
-                <input type="radio" name="data-categoria" id="salario" value="Salário" checked>
-                Salário
-              </label>
+                <label for="salario">
+                  <input type="radio" name="data-categoria" id="salario" value="Salário">
+                  Salário
+                </label>
 
-              <label for="adto-salario">
-                <input type="radio" name="data-categoria" id="adto-salario" value="Adto. salário">
-                Adto. salário
-              </label>
+                <label for="adto-salario">
+                  <input type="radio" name="data-categoria" id="adto-salario" value="Adto. salário">
+                  Adto. salário
+                </label>
 
-              <label for="dividendo">
-                <input type="radio" name="data-categoria" id="dividendo" value="Dividendo">
-                Dividendo
-              </label>
+                <label for="dividendo">
+                  <input type="radio" name="data-categoria" id="dividendo" value="Dividendo">
+                  Dividendo
+                </label>
 
-              <label for="jscp">
-                <input type="radio" name="data-categoria" id="jscp" value="JSCP">
-                JSCP
-              </label>
-            </div>
+                <label for="jscp">
+                  <input type="radio" name="data-categoria" id="jscp" value="JSCP">
+                  JSCP
+                </label>
+              </div>
 
-            <input type="submit" value="FILTRAR">
+              <button> FILTRAR</button>
 
           </form>
         </div>
@@ -155,61 +157,67 @@
           <p>Conta</p>
           <p>Categoria</p>
         </div>
-        <div class="body-tabela" data-theme="light">
+
+        <div class="body-tabela" id="tabela-receitas" data-theme="light">
+
           <div class="linha-tabela">
-            <p>16/08/26</p>
-            <p class="valor">1.500,00</p>
-            <p>Itaú</p>
-            <p>Salário</p>
+            <p class="data" data-filterType="date">15/07/2026</p>
+            <p class="valor" data-filterType="value">1350.00</p>
+            <p class="local" data-filterType="local">Itaú</p>
+            <p class="categoria" data-filterType="category">Adto. salário</p>
           </div>
+
           <div class="linha-tabela">
-            <p>15/08/26</p>
-            <p class="valor">150,00</p>
-            <p>Mercado Pago</p>
-            <p>Dividendo</p>
+            <p class="data" data-filterType="date">22/07/2026</p>
+            <p class="valor" data-filterType="value">300.00</p>
+            <p class="local" data-filterType="local">Inter</p>
+            <p class="categoria" data-filterType="category">JSCP</p>
           </div>
+
           <div class="linha-tabela">
-            <p>22/07/26</p>
-            <p class="valor">300,00</p>
-            <p>Inter</p>
-            <p>JSCP</p>
+            <p class="data" data-filterType="date">15/08/2026</p>
+            <p class="valor" data-filterType="value">150.00</p>
+            <p class="local" data-filterType="local">Mercado Pago</p>
+            <p class="categoria" data-filterType="category">Dividendo</p>
           </div>
+
           <div class="linha-tabela">
-            <p>15/07/26</p>
-            <p class="valor">1.350,00</p>
-            <p>Itaú</p>
-            <p>Adto. salário</p>
+            <p class="data" data-filterType="date">16/08/2026</p>
+            <p class="valor" data-filterType="value">1500.00</p>
+            <p class="local" data-filterType="local">Itaú</p>
+            <p class="categoria" data-filterType="category">Salário</p>
           </div>
+
         </div>
+
       </article>
 
       <article class="tabela despesas">
-
         <h2 class="subtitle" data-theme="light">Despesas</h2>
 
         <div class="filtro-tabela">
-          <button class="btn-filtro"><img src="./img/icons/empty-funnel.svg" alt="" data-theme="light" class="filtro"></button>
+          <button class="btn-filtro"><img src="./img/icons/empty-funnel.svg" alt="" data-theme="light" class="filtro "></button>
 
-          <form class="menu-filtro">
+          <form class="menu-filtro formFiltro" id="filtroDespesas" action="./modules/handleFilter.js" method="POST">
 
             <div class="filtro-campo" data-filter="data">
               <h3>Data</h3>
 
-              <label for="data-30">
-                <input type="radio" name="data-filtro" id="data-30" value="30 dias" checked>
+              <label for="data-30-r">
+                <input type="radio" name="data-filtro" id="data-30-r" value="30-d">
                 30 dias
               </label>
 
-              <label for="data-60">
-                <input type="radio" name="data-filtro" id="data-60" value="60 dias">60 dias
+              <label for="data-60-r">
+                <input type="radio" name="data-filtro" id="data-60-r" value="60-d">60 dias
               </label>
 
-              <label for="data-90">
-                <input type="radio" name="data-filtro" id="data-90" value="90 dias"> 90 dias
+              <label for="data-90-r">
+                <input type="radio" name="data-filtro" id="data-90-r" value="90-d"> 90 dias
               </label>
 
-              <label for="data-1">
-                <input type="radio" name="data-filtro" id="data-1" value=""> 1 ano
+              <label for="data-1-r">
+                <input type="radio" name="data-filtro" id="data-1-r" value="365-d"> 1 ano
               </label>
             </div>
 
@@ -218,94 +226,102 @@
               <label for="valor-filtro">
                 <h3>Valor</h3>
               </label>
-              <input type="text" inputmode="decimal" placeholder="350,00" id="valor-filtro">
-            </div>
+              <input type="text" inputmode="decimal" placeholder="350.00" id="valor-filtro" name="valor-filtro" />
 
-            <div class="filtro-campo" data-filter="local">
-              <h3>Local</h3>
+              <div class="filtro-campo" data-filter="local">
+                <h3>Local</h3>
 
-              <label for="itau">
-                <input type="radio" name="data-local" id="itau" value="Itaú" checked>
-                Itaú
-              </label>
+                <label for="itau-r">
+                  <input type="radio" name="data-local" id="itau-r" value="Itaú">
+                  Itaú
+                </label>
 
-              <label for="inter">
-                <input type="radio" name="data-local" id="inter" value="Inter">
-                Inter
-              </label>
+                <label for="inter-r">
+                  <input type="radio" name="data-local" id="inter-r" value="Inter">
+                  Inter
+                </label>
 
-              <label for="mercado-pago">
-                <input type="radio" name="data-local" id="mercado-pago" value="Mercado Pago">
-                Mercado Pago
-              </label>
+                <label for="mercado-pago-r">
+                  <input type="radio" name="data-local" id="mercado-pago-r" value="Mercado Pago">
+                  Mercado Pago
+                </label>
 
-              <label for="dinheiro">
-                <input type="radio" name="data-local" id="dinheiro" value="Dinheiro">
-                Dinheiro
-              </label>
-            </div>
+                <label for="dinheiro-r">
+                  <input type="radio" name="data-local" id="dinheiro-r" value="Dinheiro">
+                  Dinheiro
+                </label>
+              </div>
 
-            <div class="filtro-campo" data-filter="categoria">
-              <h3>Categoria</h3>
+              <div class="filtro-campo" data-filter="categoria">
+                <h3>Categoria</h3>
 
-              <label for="fin-carro">
-                <input type="radio" name="data-categoria" id="fin-carro" value="Fin. Carro" checked>
-                Fin. Carro
-              </label>
+                <label for="roupas">
+                  <input type="radio" name="data-categoria" id="roupas" value="Roupas">
+                  Roupas
+                </label>
 
-              <label for="roupas">
-                <input type="radio" name="data-categoria" id="roupas" value="Roupas">
-                Roupas
-              </label>
+                <label for="fin-carro">
+                  <input type="radio" name="data-categoria" id="fin-carro" value="Fin. Carro">
+                  Fin. Carro
+                </label>
 
-              <label for="pix">
-                <input type="radio" name="data-categoria" id="pix" value="Pix">
-                PIX
-              </label>
+                <label for="remedios">
+                  <input type="radio" name="data-categoria" id="remedios" value="Remédios">
+                  Remédios
+                </label>
 
-              <label for="remedios">
-                <input type="radio" name="data-categoria" id="remedios" value="Remédios">
-                Remédios
-              </label>
-            </div>
+                <label for="pix">
+                  <input type="radio" name="data-categoria" id="pix" value="Pix">
+                  Pix
+                </label>
+              </div>
 
-            <input type="submit" value="FILTRAR">
+              <button> FILTRAR</button>
 
           </form>
         </div>
+
         <div class="head-tabela" data-theme="light">
           <p>Data</p>
           <p>Valor</p>
           <p>Conta</p>
           <p>Categoria</p>
         </div>
-        <div class="body-tabela" data-theme="light">
+
+        <div class="body-tabela" id="tabela-receitas" data-theme="light">
+
           <div class="linha-tabela">
-            <p>16/08/26</p>
-            <p class="valor">1.500,00</p>
-            <p>Itaú</p>
-            <p>Fin. Carro</p>
+            <p class="data" data-filterType="date">15/07/2026</p>
+            <p class="valor" data-filterType="value">1350.00</p>
+            <p class="local" data-filterType="local">Itaú</p>
+            <p class="categoria" data-filterType="category">Fin. Carro</p>
           </div>
+
           <div class="linha-tabela">
-            <p>15/08/26</p>
-            <p class="valor">150,00</p>
-            <p>Mercado Pago</p>
-            <p>Roupas</p>
+            <p class="data" data-filterType="date">22/07/2026</p>
+            <p class="valor" data-filterType="value">300.00</p>
+            <p class="local" data-filterType="local">Inter</p>
+            <p class="categoria" data-filterType="category">Pix</p>
           </div>
+
           <div class="linha-tabela">
-            <p>22/07/26</p>
-            <p class="valor">300,00</p>
-            <p>Inter</p>
-            <p>Pix</p>
+            <p class="data" data-filterType="date">15/08/2026</p>
+            <p class="valor" data-filterType="value">150.00</p>
+            <p class="local" data-filterType="local">Mercado Pago</p>
+            <p class="categoria" data-filterType="category">Remédios</p>
           </div>
+
           <div class="linha-tabela">
-            <p>15/07/26</p>
-            <p class="valor">1.350,00</p>
-            <p>Itaú</p>
-            <p>Remédios</p>
+            <p class="data" data-filterType="date">16/08/2026</p>
+            <p class="valor" data-filterType="value">1500.00</p>
+            <p class="local" data-filterType="local">Itaú</p>
+            <p class="categoria" data-filterType="category">Roupas</p>
           </div>
+
         </div>
+
       </article>
+
     </section>
   </main>
 

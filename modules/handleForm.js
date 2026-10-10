@@ -1,5 +1,5 @@
 export default function handleForm() {
-  const form = document.querySelector("#form");
+  const form = document.querySelector("#formCadastro");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
