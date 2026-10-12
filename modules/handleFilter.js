@@ -63,12 +63,14 @@ export default function handleFilter() {
     const values = Object.values(data).filter((v) => v != "");
     const dates = ["30-d", "60-d", "90-d", "365-d"];
     const form = document.querySelector("#" + formTable);
-    const table = form.parentElement;
+    const filter = form.parentElement;
+    const table = filter.parentElement;
     const bodyTable = table.lastElementChild;
     const allLine = [...bodyTable.children];
 
     allLine.forEach((line) => {
       line.style.display = "grid";
+
       values.forEach((value) => {
         if (dates.includes(value)) {
           const msValue = checkMs(value);
@@ -85,6 +87,8 @@ export default function handleFilter() {
           if (Date.parse(dateLine) < todayMs - msValue) {
             line.style.display = "none";
           }
+        } else if (!Array(...line.children)[1].innerHTML.includes(value)) {
+          line.style.display = "none";
         } else if (!line.innerText.includes(value)) {
           line.style.display = "none";
         }
