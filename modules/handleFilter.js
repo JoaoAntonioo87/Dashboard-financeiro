@@ -87,8 +87,8 @@ export default function handleFilter() {
           if (Date.parse(dateLine) < todayMs - msValue) {
             line.style.display = "none";
           }
-        } else if (!Array(...line.children)[1].innerHTML.includes(value)) {
-          line.style.display = "none";
+        } else if (Array(...line.children)[1].innerHTML.includes(value)) {
+          line.style.display = "grid";
         } else if (!line.innerText.includes(value)) {
           line.style.display = "none";
         }
