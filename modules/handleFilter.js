@@ -32,9 +32,12 @@ export default function handleFilter() {
 
   function handleInputs(labels) {
     labels.forEach((label) => {
-      label.addEventListener("dblclick", (e) => {
+      label.addEventListener("click", (e) => {
+        e.preventDefault();
         if (label.children[0].checked) {
           label.children[0].checked = false;
+        } else {
+          label.children[0].checked = true;
         }
       });
     });
@@ -87,8 +90,11 @@ export default function handleFilter() {
           if (Date.parse(dateLine) < todayMs - msValue) {
             line.style.display = "none";
           }
-        } else if (Array(...line.children)[1].innerHTML.includes(value)) {
-          line.style.display = "grid";
+        } else if (
+          Number(value) &&
+          !line.children[1].innerHTML.includes(value)
+        ) {
+          line.style.display = "none";
         } else if (!line.innerText.includes(value)) {
           line.style.display = "none";
         }
