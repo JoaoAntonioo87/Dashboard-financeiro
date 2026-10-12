@@ -146,10 +146,6 @@
   margin-top: 0.75rem;
 }
 
-.body-tabela[data-theme="dark"] {
-  color: var(--COLOR-C2);
-}
-
 .linha-tabela {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -211,6 +207,12 @@
 
   .body-tabela[data-theme="dark"] {
     color: var(--COLOR-C3);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .tabela + .tabela {
+    margin-top: 2rem;
   }
 }
 
