@@ -1,4 +1,6 @@
-export default function handleForm() {
+import handleNewLineTable from "./handleNewLineTable.js";
+
+export default function handleFormRegister() {
   const form = document.querySelector("#formCadastro");
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -6,6 +8,9 @@ export default function handleForm() {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
 
-    return data;
+    handleNewLineTable(data);
+
+    form.reset();
+    return;
   });
 }

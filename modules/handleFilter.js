@@ -47,7 +47,7 @@ export default function handleFilter() {
 
   handleInputs(formLabels);
 
-  function handleForm(formFilters) {
+  function handleFormFilter(formFilters) {
     formFilters.forEach((form) => {
       const formTable = form.id;
       form.addEventListener("submit", (e) => {
@@ -62,5 +62,5 @@ export default function handleFilter() {
     });
   }
 
-  handleForm(formFilters);
+  handleFormFilter(formFilters);
 }
