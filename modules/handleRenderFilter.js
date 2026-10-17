@@ -1,22 +1,22 @@
-export default function handleRenderTable(data, formTable) {
-  if (data && formTable) {
-    function checkMs(dateIndex) {
-      const msDay = 24 * 60 * 60 * 1000;
+export default function handleRenderFilter(data, formTable) {
+  function checkMs(dateIndex) {
+    const msDay = 24 * 60 * 60 * 1000;
 
-      switch (dateIndex) {
-        case "30-d":
-          return msDay * 30;
-        case "60-d":
-          return msDay * 60;
+    switch (dateIndex) {
+      case "30-d":
+        return msDay * 30;
+      case "60-d":
+        return msDay * 60;
 
-        case "90-d":
-          return msDay * 90;
+      case "90-d":
+        return msDay * 90;
 
-        case "365-d":
-          return msDay * 365;
-      }
+      case "365-d":
+        return msDay * 365;
     }
+  }
 
+  if (data && formTable) {
     const values = Object.values(data).filter((v) => v != "");
     const dates = ["30-d", "60-d", "90-d", "365-d"];
     const form = document.querySelector("#" + formTable);
@@ -25,7 +25,16 @@ export default function handleRenderTable(data, formTable) {
     const bodyTable = table.lastElementChild;
     const allLine = [...bodyTable.children];
 
-    allLine.forEach((line) => {
+    const objLocalStorageRender = {};
+
+    allLine.forEach((line, index) => {
+      const children = [...line.children];
+      const objLine = {};
+      children.forEach((c) => {
+        objLine[c.classList] = c.innerText;
+      });
+      objLocalStorageRender[index] = objLine;
+
       line.style.display = "grid";
 
       values.forEach((value) => {
@@ -43,16 +52,24 @@ export default function handleRenderTable(data, formTable) {
 
           if (Date.parse(dateLine) < todayMs - msValue) {
             line.style.display = "none";
+            delete objLocalStorageRender[index];
           }
         } else if (
           Number(value) &&
           !line.children[1].innerHTML.includes(value)
         ) {
           line.style.display = "none";
+          delete objLocalStorageRender[index];
         } else if (!line.innerText.includes(value)) {
           line.style.display = "none";
+          delete objLocalStorageRender[index];
         }
       });
     });
+
+    localStorage.setItem(
+      bodyTable.id + "-render",
+      JSON.stringify(objLocalStorageRender),
+    );
   }
 }

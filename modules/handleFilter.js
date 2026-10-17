@@ -1,4 +1,4 @@
-import handleRenderTable from "./handleRenderTable.js";
+import handleRenderFilter from "./handleRenderFilter.js";
 
 export default function handleFilter() {
   const btns = Array.from(document.querySelectorAll(".btn-filtro"));
@@ -55,7 +55,7 @@ export default function handleFilter() {
         handleIcon(form.parentElement.children[0]);
         const dataForm = new FormData(form);
         const data = Object.fromEntries(dataForm);
-        handleRenderTable(data, formTable);
+        handleRenderFilter(data, formTable);
         form.classList.remove("active");
         return data;
       });
