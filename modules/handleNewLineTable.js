@@ -1,3 +1,5 @@
+import handleRenderLocalStorage from "./handleRenderLocalStorage.js";
+
 export default function handleNewLineTable(data) {
   const newDiv = document.createElement("div");
   newDiv.classList.add("linha-tabela");
@@ -28,4 +30,10 @@ export default function handleNewLineTable(data) {
 
   const table = document.querySelector("#" + tableId);
   table.appendChild(newDiv);
+
+  const lsOld = JSON.parse(localStorage.getItem("tabela-" + data.tabela)) || {};
+  lsOld[Object.keys(lsOld).length + 1] = data;
+  localStorage.setItem("tabela-" + data.tabela, JSON.stringify(lsOld));
+
+  handleRenderLocalStorage();
 }

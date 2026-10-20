@@ -26,6 +26,7 @@ export default function handleRenderFilter(data, formTable) {
     const allLine = [...bodyTable.children];
 
     const objLocalStorageRender = {};
+    objLocalStorageRender.tabela = bodyTable.id;
 
     allLine.forEach((line, index) => {
       const children = [...line.children];
@@ -67,9 +68,6 @@ export default function handleRenderFilter(data, formTable) {
       });
     });
 
-    localStorage.setItem(
-      bodyTable.id + "-render",
-      JSON.stringify(objLocalStorageRender),
-    );
+    localStorage.setItem(bodyTable.id, JSON.stringify(objLocalStorageRender));
   }
 }

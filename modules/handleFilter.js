@@ -1,11 +1,12 @@
 import handleRenderFilter from "./handleRenderFilter.js";
+import updateForms from "./updateForms.js";
 
 export default function handleFilter() {
   const btns = Array.from(document.querySelectorAll(".btn-filtro"));
 
   const formLabels = Array.from(document.querySelectorAll(".formFiltro label"));
 
-  const formFilters = Array.from(document.querySelectorAll(".formFiltro"));
+  const formFilters = updateForms();
 
   function handleIcon(btn) {
     const children = [...btn.children];
