@@ -81,6 +81,10 @@
   background-position: right 1.25rem center;
 }
 
+.form-cadastro #categoria-despesas {
+  display: none;
+}
+
 /* Lidar com o icone de calendario */
 .form-cadastro input[type="date"]::-webkit-calendar-picker-indicator {
   background-image: url(../img/icons/calendar.svg);

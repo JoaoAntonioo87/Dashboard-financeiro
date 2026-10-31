@@ -14,6 +14,6 @@ export default function handleChoiceTable() {
       : (notSelectChoice = document.querySelector("#categoria-receitas"));
 
     notSelectChoice.style.display = "none";
-    notSelectChoice.setAttribute("required", false);
+    notSelectChoice.required = false;
   });
 }
