@@ -36,36 +36,38 @@ export default function handleRenderFilter(data, formTable) {
       });
       objLocalStorageRender[index] = objLine;
 
-      line.style.display = "grid";
-
-      values.forEach((value) => {
-        if (dates.includes(value)) {
-          const msValue = checkMs(value);
-          const todayMs = Date.now();
-          const children = [...line.children];
-          const dateLine = new Date(
-            children[0].innerText
-              .split("/")
-              .reverse()
-              .toString()
-              .replaceAll(",", "-"),
-          );
-
-          if (Date.parse(dateLine) < todayMs - msValue) {
+      if (values.length) {
+        values.forEach((value) => {
+          if (dates.includes(value)) {
+            const msValue = checkMs(value);
+            const todayMs = Date.now();
+            const children = [...line.children];
+            const dateLine = new Date(
+              children[0].innerText
+                .split("/")
+                .reverse()
+                .toString()
+                .replaceAll(",", "-"),
+            );
+            if (Date.parse(dateLine) < todayMs - msValue) {
+              line.style.display = "none";
+            }
+          } else if (
+            Number(value) &&
+            !line.children[1].innerHTML.includes(value)
+          ) {
             line.style.display = "none";
             delete objLocalStorageRender[index];
+          } else if (!line.innerText.includes(value)) {
+            line.style.display = "none";
+            delete objLocalStorageRender[index];
+          } else {
+            line.style.display = "grid";
           }
-        } else if (
-          Number(value) &&
-          !line.children[1].innerHTML.includes(value)
-        ) {
-          line.style.display = "none";
-          delete objLocalStorageRender[index];
-        } else if (!line.innerText.includes(value)) {
-          line.style.display = "none";
-          delete objLocalStorageRender[index];
-        }
-      });
+        });
+      } else {
+        line.style.display = "grid";
+      }
     });
 
     localStorage.setItem(bodyTable.id, JSON.stringify(objLocalStorageRender));

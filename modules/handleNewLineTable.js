@@ -4,11 +4,23 @@ export default function handleNewLineTable(data) {
   const newDiv = document.createElement("div");
   newDiv.classList.add("linha-tabela");
 
-  let tableId = "";
+  const arrayData = Object.entries(data);
 
-  for (let item in data) {
-    if (item == "data") {
-      const date = data[item].split("-").reverse().join("/");
+  arrayData.forEach((item) => {
+    if (item[0] === "data") {
+      arrayData.unshift(item);
+      arrayData.pop();
+    } else if (item[0].includes("categoria")) {
+      item[0] = String(item[0].split("-")[0]);
+    }
+  });
+
+  const ordedData = Object.fromEntries(arrayData);
+
+  for (let item in ordedData) {
+    if (item === "data") {
+      const date = ordedData[item].split("-").reverse().join("/");
+      ordedData[item] = String(date);
       const newElement = document.createElement("p");
       newElement.classList.add(item);
       newElement.innerText = date;
@@ -17,23 +29,28 @@ export default function handleNewLineTable(data) {
       const newElement = document.createElement("p");
       newElement.classList.add(item);
 
-      if (Number(data[item])) {
-        newElement.innerText = Number(data[item]);
+      if (Number(ordedData[item])) {
+        newElement.innerText = Number(ordedData[item]);
+        newDiv.appendChild(newElement);
+      } else if (item.includes("categoria")) {
+        item = String(item.split("-")[0]);
+        newElement.innerText = item.charAt(0).toUpperCase() + item.slice(1);
+        console.log(newElement.innerText);
+
+        newDiv.appendChild(newElement);
+      } else {
+        newElement.innerText =
+          ordedData[item].charAt(0).toUpperCase() + ordedData[item].slice(1);
+        newDiv.appendChild(newElement);
       }
-      newElement.innerText =
-        data[item].charAt(0).toUpperCase() + data[item].slice(1);
-      newDiv.appendChild(newElement);
-    } else {
-      tableId = "tabela-" + data[item];
     }
   }
 
-  const table = document.querySelector("#" + tableId);
-  table.appendChild(newDiv);
-
   const lsOld = JSON.parse(localStorage.getItem("tabela-" + data.tabela)) || {};
-  lsOld[Object.keys(lsOld).length + 1] = data;
-  localStorage.setItem("tabela-" + data.tabela, JSON.stringify(lsOld));
+  const { tabela, ...dataSemTabela } = ordedData;
+  lsOld[Object.keys(lsOld).length - 1] = dataSemTabela;
+
+  localStorage.setItem("tabela-" + ordedData.tabela, JSON.stringify(lsOld));
 
   handleRenderLocalStorage();
 }
