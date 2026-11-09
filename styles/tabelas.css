@@ -137,13 +137,25 @@
 }
 
 .head-tabela[data-theme="dark"] {
-  color: var(--COLOR-C2);
+  color: var(--COLOR-C1);
 }
 
 .body-tabela {
   color: var(--COLOR-C3);
   font: var(--FONT-XS);
   margin-top: 0.75rem;
+}
+
+.body-tabela[data-theme="dark"] {
+  color: var(--COLOR-C1);
+}
+
+.body-tabela[data-theme="dark"] .linha-tabela {
+  background-color: var(--COLOR-P2);
+}
+
+.body-tabela[data-theme="dark"] .linha-tabela:nth-child(even) {
+  background-color: var(--COLOR-P1);
 }
 
 .linha-tabela {
