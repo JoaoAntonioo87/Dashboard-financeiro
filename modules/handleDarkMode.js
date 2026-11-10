@@ -3,27 +3,33 @@ export default function handleDarkMode() {
   const btnIcon = document.querySelector("#theme-icon");
   const elements = Array.from(document.querySelectorAll("[data-theme]"));
 
+  if (!btn) {
+    console.warn('There is no element with "#theme-btn" to select');
+    return;
+  }
+
   function handleIcon() {
-    const currentIcon = btnIcon.getAttribute("src");
-    if (currentIcon == "./img/icons/moon.svg") {
-      btnIcon.setAttribute("src", "./img/icons/sun.svg");
+    if (btnIcon) {
+      const currentIcon = btnIcon.getAttribute("src");
+      currentIcon === "./img/icons/moon.svg"
+        ? btnIcon.setAttribute("src", "./img/icons/sun.svg")
+        : btnIcon.setAttribute("src", "./img/icons/moon.svg");
     } else {
-      btnIcon.setAttribute("src", "./img/icons/moon.svg");
+      console.warn('There is no element with "#theme-icon" to select');
     }
   }
 
   function toggleTheme() {
-    elements.forEach((e) => {
-      const currentTheme = e.getAttribute("data-theme");
-
-      if (currentTheme == "light") {
-        e.setAttribute("data-theme", "dark");
-      } else {
-        e.setAttribute("data-theme", "light");
-      }
-    });
-
-    handleIcon();
+    if (elements.length > 0) {
+      const currentTheme = elements[0].getAttribute("data-theme");
+      const nextTheme = currentTheme === "light" ? "dark" : "light";
+      elements.forEach((e) => {
+        e.setAttribute("data-theme", nextTheme);
+      });
+      handleIcon();
+    } else {
+      console.warn('There is no element with "[data-theme]" to select');
+    }
   }
 
   btn.addEventListener("click", () => toggleTheme());

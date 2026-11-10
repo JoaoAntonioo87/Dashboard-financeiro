@@ -89,9 +89,10 @@ export default function handleRenderLocalStorage() {
   const lSItens = { ...localStorage };
   for (let i = 0; i < Object.entries(lSItens).length; i++) {
     const lSKey = Object.entries(lSItens)[i][0];
-    const lSValue = JSON.parse(localStorage.getItem(lSKey));
-    const formName = "tabela-" + lSKey.split("-")[1];
-
-    renderTable(formName, lSValue);
+    if (lSKey.includes("tabela")) {
+      const lSValue = JSON.parse(localStorage.getItem(lSKey));
+      const formName = "tabela-" + lSKey.split("-")[1];
+      renderTable(formName, lSValue);
+    }
   }
 }
