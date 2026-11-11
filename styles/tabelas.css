@@ -189,7 +189,7 @@
 
 .saldo-total,
 .saldo-total span {
-  font: var(--FONT-XS);
+  font: var(--FONT-S-2);
   margin-top: 1rem;
   justify-self: center;
 }
@@ -237,11 +237,16 @@
 
 @media screen and (min-width: 1440px) {
   .tabelas-grid {
-    display: flex;
-    gap: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 5rem;
   }
 
   .tabela + .tabela {
     margin: 0;
+  }
+
+  .saldo {
+    grid-column: 1/-1;
   }
 }
