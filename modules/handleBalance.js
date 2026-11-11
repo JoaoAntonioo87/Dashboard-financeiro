@@ -25,7 +25,7 @@ export default function handleBalance() {
 
   const totalExpense = getTotal(tableExpense);
   const totalRevenue = getTotal(tableRevenue);
-  const totalBalance = totalRevenue - totalExpense;
+  const totalBalance = (totalRevenue - totalExpense).toFixed(2);
 
   function updateBalance() {
     const totalBalanceElement = document.querySelector("#totalBalance");
