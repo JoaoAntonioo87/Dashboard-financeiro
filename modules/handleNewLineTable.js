@@ -1,4 +1,5 @@
 import handleRenderLocalStorage from "./handleRenderLocalStorage.js";
+import handleBalance from "./handleBalance.js";
 
 export default function handleNewLineTable(data) {
   const newDiv = document.createElement("div");
@@ -53,4 +54,5 @@ export default function handleNewLineTable(data) {
   localStorage.setItem("tabela-" + ordedData.tabela, JSON.stringify(lsOld));
 
   handleRenderLocalStorage();
+  handleBalance();
 }

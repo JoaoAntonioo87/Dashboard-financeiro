@@ -15,7 +15,7 @@ export default function handleBalance() {
       }
     }
 
-    if (!total) {
+    if (!Number.isFinite(total)) {
       console.warn("There is a error at some number from localStorage");
       return null;
     }
@@ -27,12 +27,21 @@ export default function handleBalance() {
   const totalRevenue = getTotal(tableRevenue);
   const totalBalance = totalRevenue - totalExpense;
 
-  const totalBalanceElement = document.querySelector("#totalBalance");
-  if (totalBalance) {
-    totalBalanceElement.innerText = totalBalance;
-    totalBalanceElement.dataset.balance = totalBalance;
-  } else {
-    totalBalanceElement.innerText = 0;
-    totalBalanceElement.dataset.balance = 0;
+  function updateBalance() {
+    const totalBalanceElement = document.querySelector("#totalBalance");
+
+    if (!totalBalanceElement) {
+      console.warn("Balance element not found");
+      return;
+    }
+
+    if (totalBalance) {
+      totalBalanceElement.innerText = totalBalance;
+      totalBalanceElement.dataset.balance = totalBalance;
+    } else {
+      totalBalanceElement.innerText = 0;
+      totalBalanceElement.dataset.balance = 0;
+    }
   }
+  updateBalance();
 }
