@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "clean-css-cli": "^5.6.3",
+    "csv": "^6.6.4",
     "objects-to-csv": "^3.0.0"
   }
 }
