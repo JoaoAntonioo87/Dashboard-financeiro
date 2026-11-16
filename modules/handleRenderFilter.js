@@ -53,6 +53,10 @@ export default function handleRenderFilter(data, formTable) {
             );
             if (Date.parse(dateLine) < todayMs - msValue) {
               line.style.display = "none";
+              delete objLocalStorageRender[index];
+            } else {
+              line.style.display = "grid";
+              objLocalStorageRender[index] = objLine;
             }
           } else if (
             Number(value) &&
