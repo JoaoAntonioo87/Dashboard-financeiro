@@ -194,6 +194,10 @@
   justify-self: center;
 }
 
+.saldo[data-theme="dark"] {
+  color: var(--COLOR-C1);
+}
+
 #btn-csv {
   background-color: var(--COLOR-U3);
   border: 4px solid var(--COLOR-P3);
