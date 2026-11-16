@@ -1,3 +1,5 @@
+import handleBalance from "./handleBalance.js";
+
 export default function handleRenderFilter(data, formTable) {
   function checkMs(dateIndex) {
     const msDay = 24 * 60 * 60 * 1000;
@@ -72,4 +74,5 @@ export default function handleRenderFilter(data, formTable) {
 
     localStorage.setItem(bodyTable.id, JSON.stringify(objLocalStorageRender));
   }
+  handleBalance();
 }
