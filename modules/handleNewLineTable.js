@@ -36,7 +36,6 @@ export default function handleNewLineTable(data) {
       } else if (item.includes("categoria")) {
         item = String(item.split("-")[0]);
         newElement.innerText = item.charAt(0).toUpperCase() + item.slice(1);
-        console.log(newElement.innerText);
 
         newDiv.appendChild(newElement);
       } else {
