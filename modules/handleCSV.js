@@ -1,27 +1,6 @@
+import getLocalStorageData from "./getLocalStorageData.js";
+
 export default function handleCSV() {
-  function getLocalStorageData(key) {
-    const data = localStorage.getItem(key);
-
-    if (data === null) {
-      console.warn(`Missing localStorage key: ${key}`);
-      return null;
-    }
-
-    try {
-      const parsedData = JSON.parse(data);
-
-      if (parsedData === null || typeof parsedData !== "object") {
-        console.warn(`Invalid data structure: ${key}`);
-        return null;
-      }
-
-      return Object.values(parsedData);
-    } catch (error) {
-      console.warn(`Invalid JSON in ${key}`, error);
-      return null;
-    }
-  }
-
   function handleDataRetrieval() {
     const expenses = getLocalStorageData("tabela-despesas");
     const revenues = getLocalStorageData("tabela-receitas");
