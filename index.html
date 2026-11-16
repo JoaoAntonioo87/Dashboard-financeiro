@@ -30,7 +30,7 @@
     <section class="form-cadastro container">
       <form action="./modules/handleFormRegister.js" method="POST" data-theme="light" id="formCadastro">
         <label for="valor" data-theme="light">Valor</label>
-        <input type="number" id="valor" name="valor" placeholder="R$ 150.25" step="0.01" required data-theme="light">
+        <input type="number" id="valor" name="valor" placeholder="R$ 150.25" step="0.01" required min="0" data-theme="light">
 
         <select name="tabela" id="tabela" required data-theme="light">
           <option value="" disabled selected>Operação</option>
