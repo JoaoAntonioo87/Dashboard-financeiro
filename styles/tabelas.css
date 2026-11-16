@@ -194,6 +194,22 @@
   justify-self: center;
 }
 
+#btn-csv {
+  background-color: var(--COLOR-U3);
+  border: 4px solid var(--COLOR-P3);
+  border-radius: 1rem;
+  box-shadow: 4px 4px 0 var(--COLOR-P1);
+  font: var(--FONT-S-2);
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  justify-self: center;
+}
+
+#btn-csv[data-theme="dark"] {
+  border: 4px solid var(--COLOR-P2);
+  box-shadow: 4px 4px 0 var(--COLOR-P3);
+}
+
 @media screen and (min-width: 1024px) {
   .subtitle[data-theme="dark"] {
     color: var(--COLOR-P3);
@@ -264,5 +280,9 @@
 
   .linha-tabela:nth-child(even) {
     background-color: var(--COLOR-C2);
+  }
+
+  #btn-csv {
+    grid-column: 1/-1;
   }
 }
