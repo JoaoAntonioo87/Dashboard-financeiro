@@ -1,4 +1,5 @@
 import handleBalance from "./handleBalance.js";
+import handleGraphics from "./handleGraphics.js";
 
 export default function handleRenderFilter(data, formTable) {
   function checkMs(dateIndex) {
@@ -79,4 +80,6 @@ export default function handleRenderFilter(data, formTable) {
     localStorage.setItem(bodyTable.id, JSON.stringify(objLocalStorageRender));
   }
   handleBalance();
+  const graphics = handleGraphics();
+  graphics.updateCharts();
 }

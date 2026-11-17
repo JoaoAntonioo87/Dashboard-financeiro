@@ -1,75 +1,97 @@
 import getLocalStorageData from "./getLocalStorageData.js";
 
+let graphicExpenses = null;
+let graphicRevenues = null;
+
 export default function handleGraphics() {
   const chartExpenses = document.getElementById("chartExpenses");
   const chartRevenues = document.getElementById("chartRevenues");
 
-  const revenues = getLocalStorageData("tabela-despesas");
-  const expenses = getLocalStorageData("tabela-receitas");
+  if (!chartExpenses || !chartRevenues) {
+    console.warn("Error: Missing canva!");
+    return;
+  }
 
-  function getData(localStorage) {
-    const dataGraphics = {};
+  function getData(localStorageData) {
     const dates = [];
     const values = [];
-    for (let i in localStorage) {
-      if (localStorage[i].data) {
-        dates.push(localStorage[i].data);
+    for (let i in localStorageData) {
+      if (localStorageData[i].data) {
+        dates.push(localStorageData[i].data);
       }
-      if (localStorage[i].valor) {
-        values.push(localStorage[i].valor);
+      if (localStorageData[i].valor) {
+        values.push(localStorageData[i].valor);
       }
     }
-
-    dataGraphics.dates = dates;
-    dataGraphics.values = values;
-
-    return dataGraphics;
+    return { dates, values };
   }
+
+  const expenses = getLocalStorageData("tabela-despesas");
+  const revenues = getLocalStorageData("tabela-receitas");
 
   const dataExpenses = getData(expenses);
   const dataRevenues = getData(revenues);
 
-  const graphicExpenses = new Chart(chartExpenses, {
+  // SE JÁ EXISTIR UM GRÁFICO CRIADO, DESTRUA-O ANTES DE CRIAR OUTRO
+  if (graphicExpenses) {
+    graphicExpenses.destroy();
+  }
+  if (graphicRevenues) {
+    graphicRevenues.destroy();
+  }
+
+  // Criação dos gráficos
+  graphicExpenses = new Chart(chartExpenses, {
     type: "bar",
     data: {
       labels: dataExpenses.dates,
       datasets: [
         {
-          label: "Total de renda por dia",
-          data: dataExpenses.values,
-          borderWidth: 2,
-          backgroundColor: "#4deb77",
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
-    },
-  });
-
-  const graphicRevenues = new Chart(chartRevenues, {
-    type: "bar",
-    data: {
-      labels: dataRevenues.dates,
-      datasets: [
-        {
           label: "Total de despesa por dia",
-          data: dataRevenues.values,
+          data: dataExpenses.values,
           borderWidth: 2,
           backgroundColor: "#fb6161",
         },
       ],
     },
     options: {
-      scales: {
-        y: {
-          beginAtZero: true,
-        },
-      },
+      scales: { y: { beginAtZero: true } },
     },
   });
+
+  graphicRevenues = new Chart(chartRevenues, {
+    type: "bar",
+    data: {
+      labels: dataRevenues.dates,
+      datasets: [
+        {
+          label: "Total de renda por dia",
+          data: dataRevenues.values,
+          borderWidth: 2,
+          backgroundColor: "#4deb77",
+        },
+      ],
+    },
+    options: {
+      scales: { y: { beginAtZero: true } },
+    },
+  });
+
+  function updateCharts() {
+    const newExpenses = getLocalStorageData("tabela-despesas");
+    const newRevenues = getLocalStorageData("tabela-receitas");
+
+    const updatedDataExpenses = getData(newExpenses);
+    const updatedDataRevenues = getData(newRevenues);
+
+    graphicExpenses.data.labels = updatedDataExpenses.dates;
+    graphicExpenses.data.datasets[0].data = updatedDataExpenses.values;
+    graphicExpenses.update();
+
+    graphicRevenues.data.labels = updatedDataRevenues.dates;
+    graphicRevenues.data.datasets[0].data = updatedDataRevenues.values;
+    graphicRevenues.update();
+  }
+
+  return { updateCharts };
 }
