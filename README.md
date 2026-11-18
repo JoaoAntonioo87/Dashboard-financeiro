@@ -6,17 +6,19 @@ O projeto foi desenvolvido com HTML, CSS e JavaScript, com foco em organização
 
 ## 🚀 Demonstração
 
+---
+
 [Acessar projeto](https://dashboard-financeiro-three-brown.vercel.app/)
 
 ## 📸 Screenshots
 
 ### Desktop
 
-![Imagem desktop](./img/assets/Dektop.png)
+![Imagem desktop](./img/assets/Desktop.png)
 
 ### Mobile
 
-![Imagem mobile](./img/assets/Mobile.png)
+![Imagem mobile](./img/assets/Mobile.jpg)
 
 ## ⚙️ Funcionalidades
 
