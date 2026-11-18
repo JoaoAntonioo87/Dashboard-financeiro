@@ -1,0 +1,19 @@
+.graficos {
+  display: grid;
+  gap: 1rem;
+  grid-column: 1/-1;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.graficos canvas {
+  width: 100%;
+}
+
+@media screen and (min-width: 1440px) {
+  .graficos canvas {
+    max-width: calc(100% - 2rem);
+    max-height: 320px;
+  }
+}
